@@ -304,6 +304,304 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/r-turn-off-scientific-notation-when-writing.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qifei9">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qifei9's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/r-turn-off-scientific-notation-when-writing.html" itemprop="url">
+                  R输出数据到文件时关闭科学记数法表示
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-09 00:36:49 / 修改时间：02:21:54" itemprop="dateCreated datePublished" datetime="2018-07-09T00:36:49+08:00">2018-07-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div class="note success"><p>使用tidyverse里的<code>readr::write_tsv</code>输出数据到文件时，有些<code>numeric</code>型的数据会使用科学记数法表示，可以在输出前使用<code>format</code>函数来使其按原样输出。</p></div>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/r-turn-off-scientific-notation-when-writing.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/r-hash.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qifei9">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qifei9's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/r-hash.html" itemprop="url">
+                  在R中对字符串取hash
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-08 23:51:57" itemprop="dateCreated datePublished" datetime="2018-07-08T23:51:57+08:00">2018-07-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-09 00:18:59" itemprop="dateModified" datetime="2018-07-09T00:18:59+08:00">2018-07-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有时要在R中对一些信息做hash再保存，比如保存一些敏感信息时。这时可以使用<code>openssl</code>库中的一些函数。</p>
+<p>以sha256为例：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(<span class="string">"openssl"</span>)</span><br><span class="line">&gt; sha256(<span class="string">"foo"</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae"</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/gtf2bed.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -350,12 +648,24 @@
                 
               
 
-              <time title="创建时间：2018-07-08 19:20:50 / 修改时间：19:56:45" itemprop="dateCreated datePublished" datetime="2018-07-08T19:20:50+08:00">2018-07-08</time>
+              <time title="创建时间：2018-07-08 19:20:50" itemprop="dateCreated datePublished" datetime="2018-07-08T19:20:50+08:00">2018-07-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-09 02:22:45" itemprop="dateModified" datetime="2018-07-09T02:22:45+08:00">2018-07-09</time>
               
             
           </span>
@@ -389,7 +699,7 @@
 
       
         
-          <p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p>
+          <div class="note success"><p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p></div>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/gtf2bed.html" rel="contents">
@@ -494,12 +804,24 @@
                 
               
 
-              <time title="创建时间：2018-07-08 01:00:29 / 修改时间：01:22:52" itemprop="dateCreated datePublished" datetime="2018-07-08T01:00:29+08:00">2018-07-08</time>
+              <time title="创建时间：2018-07-08 01:00:29" itemprop="dateCreated datePublished" datetime="2018-07-08T01:00:29+08:00">2018-07-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-09 02:23:31" itemprop="dateModified" datetime="2018-07-09T02:23:31+08:00">2018-07-09</time>
               
             
           </span>
@@ -533,7 +855,7 @@
 
       
         
-          <p>在linux下以数字形式获取文件权限。</p>
+          <div class="note success"><p>在linux下以数字形式获取文件权限。</p></div>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/file-permission-number.html" rel="contents">
@@ -925,7 +1247,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1031,7 +1353,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -1039,7 +1361,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a></div>
 
 
 
@@ -1196,6 +1518,10 @@
 
   
   
+    
+      
+    
+      
     
       
     
