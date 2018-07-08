@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="在linux下以数字形式获取文件权限。">
-<meta name="keywords" content="linux">
+  <meta name="description" content="使用BEDOPS将gtf格式转换为bed格式。">
+<meta name="keywords" content="bioinfomatics">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以数字形式获取linux文件权限">
-<meta property="og:url" content="https://qifei9.github.io/2018-07-08/file-permission-number.html">
+<meta property="og:title" content="将gtf格式转换为bed格式">
+<meta property="og:url" content="https://qifei9.github.io/2018/gtf2bed.html">
 <meta property="og:site_name" content="qifei9&#39;s blog">
-<meta property="og:description" content="在linux下以数字形式获取文件权限。">
+<meta property="og:description" content="使用BEDOPS将gtf格式转换为bed格式。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-07T17:22:52.283Z">
+<meta property="og:updated_time" content="2018-07-08T11:56:45.221Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以数字形式获取linux文件权限">
-<meta name="twitter:description" content="在linux下以数字形式获取文件权限。">
+<meta name="twitter:title" content="将gtf格式转换为bed格式">
+<meta name="twitter:description" content="使用BEDOPS将gtf格式转换为bed格式。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://qifei9.github.io/2018-07-08/file-permission-number.html"/>
+  <link rel="canonical" href="https://qifei9.github.io/2018/gtf2bed.html"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>以数字形式获取linux文件权限 | qifei9's blog</title>
+  <title>将gtf格式转换为bed格式 | qifei9's blog</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018-07-08/file-permission-number.html">
+    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/gtf2bed.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qifei9">
@@ -325,7 +325,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">以数字形式获取linux文件权限
+          <h2 class="post-title" itemprop="name headline">将gtf格式转换为bed格式
               
             
           </h2>
@@ -350,7 +350,7 @@
                 
               
 
-              <time title="创建时间：2018-07-08 01:00:29 / 修改时间：01:22:52" itemprop="dateCreated datePublished" datetime="2018-07-08T01:00:29+08:00">2018-07-08</time>
+              <time title="创建时间：2018-07-08 19:20:50 / 修改时间：19:56:45" itemprop="dateCreated datePublished" datetime="2018-07-08T19:20:50+08:00">2018-07-08</time>
             
 
             
@@ -396,10 +396,17 @@
       
 
       
-        <p>在linux下以数字形式获取文件权限。</p>
+        <p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p>
 <a id="more"></a>
-<p>可以使用<code>stat</code>命令，直接使用<code>stat</code>获得详细输出，<code>stat -c %a</code>只输出以数字表示的文件权限。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://novell.me/Linux/201410/stat-get-file-permission-with-octal-numb.html" target="_blank" rel="noopener">http://novell.me/Linux/201410/stat-get-file-permission-with-octal-numb.html</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装<code>BEDOPS</code>可以使用bioconda做的docker镜像：<a href="https://quay.io/repository/biocontainers/bedops" target="_blank" rel="noopener">https://quay.io/repository/biocontainers/bedops</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1</span><br></pre></td></tr></table></figure>
+<p>注意把上面命令中的<code>tag</code>（<code>2.4.35--h2d50403_1</code>）替换成最新的版本。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动docker容器后，使用<code>gtf2bed</code>命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtf2bed &lt; foo.gtf</span><br></pre></td></tr></table></figure>
+<p>转换后的bed文件将被直接输出在标准输出上。</p>
+<p>如果需要将bed转换回gtf，可以使用<code>awk</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;' foo_subset.bed &gt; foo_subset.gtf</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>[1] <a href="https://github.com/bedops/bedops" target="_blank" rel="noopener">https://github.com/bedops/bedops</a><br>[2] <a href="https://bioconda.github.io/recipes/bedops/README.html" target="_blank" rel="noopener">https://bioconda.github.io/recipes/bedops/README.html</a><br>[3] <a href="https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html" target="_blank" rel="noopener">https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html</a></p>
 
       
     </div>
@@ -454,7 +461,7 @@
     <strong>本文作者： </strong>qifei9</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://qifei9.github.io/2018-07-08/file-permission-number.html" title="以数字形式获取linux文件权限">https://qifei9.github.io/2018-07-08/file-permission-number.html</a>
+    <a href="https://qifei9.github.io/2018/gtf2bed.html" title="将gtf格式转换为bed格式">https://qifei9.github.io/2018/gtf2bed.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -467,7 +474,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/bioinfomatics/" rel="tag"># bioinfomatics</a>
           
         </div>
       
@@ -480,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-07-03/r-sort.html" rel="next" title="在R中按数字大小排序字符">
-                <i class="fa fa-chevron-left"></i> 在R中按数字大小排序字符
+              <a href="/2018/file-permission-number.html" rel="next" title="以数字形式获取linux文件权限">
+                <i class="fa fa-chevron-left"></i> 以数字形式获取linux文件权限
               </a>
             
           </div>
@@ -573,7 +580,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -594,7 +601,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -650,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -825,12 +834,6 @@
 
 
   
-
-
-
-	
-
-
 
 
 
