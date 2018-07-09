@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Qifei9</title>
+  
+  <subtitle>Quick Note</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://qifei9.github.io/"/>
+  <updated>2018-07-08T18:21:54.114Z</updated>
+  <id>https://qifei9.github.io/</id>
+  
+  <author>
+    <name>qifei9</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R输出数据到文件时关闭科学记数法表示</title>
+    <link href="https://qifei9.github.io/2018/r-turn-off-scientific-notation-when-writing.html"/>
+    <id>https://qifei9.github.io/2018/r-turn-off-scientific-notation-when-writing.html</id>
+    <published>2018-07-08T16:36:49.000Z</published>
+    <updated>2018-07-08T18:21:54.114Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>使用tidyverse里的<code>readr::write_tsv</code>输出数据到文件时，有些<code>numeric</code>型的数据会使用科学记数法表示，可以在输出前使用<code>format</code>函数来使其按原样输出。</p></div><a id="more"></a><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; n &lt;- n %&gt;%</span><br><span class="line">    mutate_if(is.numeric, funs(format(., scientific = <span class="literal">F</span>))) %&gt;%</span><br><span class="line">    write_tsv(<span class="string">"foo/bar"</span>)</span><br></pre></td></tr></table></figure><p>如果要移除数字末尾多余的0，可以给<code>format</code>加上<code>drop0trailing  =  T</code>参数。</p><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1] <a href="https://stackoverflow.com/questions/43227387/" target="_blank" rel="noopener">https://stackoverflow.com/questions/43227387/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;使用tidyverse里的&lt;code&gt;readr::write_tsv&lt;/code&gt;输出数据到文件时，有些&lt;code&gt;numeric&lt;/code&gt;型的数据会使用科学记数法表示，可以在输出前使用&lt;code&gt;format&lt;/code&gt;函数来使其按原样输出。&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="R" scheme="https://qifei9.github.io/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在R中对字符串取hash</title>
+    <link href="https://qifei9.github.io/2018/r-hash.html"/>
+    <id>https://qifei9.github.io/2018/r-hash.html</id>
+    <published>2018-07-08T15:51:57.000Z</published>
+    <updated>2018-07-08T16:18:59.952Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时要在R中对一些信息做hash再保存，比如保存一些敏感信息时。这时可以使用<code>openssl</code>库中的一些函数。</p><p>以sha256为例：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(<span class="string">"openssl"</span>)</span><br><span class="line">&gt; sha256(<span class="string">"foo"</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae"</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;有时要在R中对一些信息做hash再保存，比如保存一些敏感信息时。这时可以使用&lt;code&gt;openssl&lt;/code&gt;库中的一些函数。&lt;/p&gt;
+&lt;p&gt;以sha256为例：&lt;/p&gt;
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class
+      
+    
+    </summary>
+    
+    
+      <category term="R" scheme="https://qifei9.github.io/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>将gtf格式转换为bed格式</title>
+    <link href="https://qifei9.github.io/2018/gtf2bed.html"/>
+    <id>https://qifei9.github.io/2018/gtf2bed.html</id>
+    <published>2018-07-08T11:20:50.000Z</published>
+    <updated>2018-07-08T18:22:45.571Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p></div><a id="more"></a><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装<code>BEDOPS</code>可以使用bioconda做的docker镜像：<a href="https://quay.io/repository/biocontainers/bedops" target="_blank" rel="noopener">https://quay.io/repository/biocontainers/bedops</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1</span><br></pre></td></tr></table></figure><p>注意把上面命令中的<code>tag</code>（<code>2.4.35--h2d50403_1</code>）替换成最新的版本。</p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动docker容器后，使用<code>gtf2bed</code>命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtf2bed &lt; foo.gtf</span><br></pre></td></tr></table></figure><p>转换后的bed文件将被直接输出在标准输出上。</p><p>如果需要将bed转换回gtf，可以使用<code>awk</code>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;' foo_subset.bed &gt; foo_subset.gtf</span><br></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>[1] <a href="https://github.com/bedops/bedops" target="_blank" rel="noopener">https://github.com/bedops/bedops</a><br>[2] <a href="https://bioconda.github.io/recipes/bedops/README.html" target="_blank" rel="noopener">https://bioconda.github.io/recipes/bedops/README.html</a><br>[3] <a href="https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html" target="_blank" rel="noopener">https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;使用&lt;code&gt;BEDOPS&lt;/code&gt;将gtf格式转换为bed格式。&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="bioinfomatics" scheme="https://qifei9.github.io/tags/bioinfomatics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以数字形式获取linux文件权限</title>
+    <link href="https://qifei9.github.io/2018/file-permission-number.html"/>
+    <id>https://qifei9.github.io/2018/file-permission-number.html</id>
+    <published>2018-07-07T17:00:29.000Z</published>
+    <updated>2018-07-08T18:23:31.862Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>在linux下以数字形式获取文件权限。</p></div><a id="more"></a><p>可以使用<code>stat</code>命令，直接使用<code>stat</code>获得详细输出，<code>stat -c %a</code>只输出以数字表示的文件权限。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://novell.me/Linux/201410/stat-get-file-permission-with-octal-numb.html" target="_blank" rel="noopener">http://novell.me/Linux/201410/stat-get-file-permission-with-octal-numb.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;在linux下以数字形式获取文件权限。&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://qifei9.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在R中按数字大小排序字符</title>
+    <link href="https://qifei9.github.io/2018/r-sort.html"/>
+    <id>https://qifei9.github.io/2018/r-sort.html</id>
+    <published>2018-07-03T11:05:29.000Z</published>
+    <updated>2018-07-03T11:26:27.228Z</updated>
+    
+    <content type="html"><![CDATA[<p>在R中，有时希望按照数字大小而不是默认的字符顺序来排序含有数字的字符向量(character vector)。</p><p>例如把<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c(<span class="string">"v10"</span>, <span class="string">"v7"</span>, <span class="string">"v2"</span>)</span><br></pre></td></tr></table></figure></p><p>排序成<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>] <span class="string">"v2"</span> <span class="string">"v7"</span>  <span class="string">"v10"</span></span><br></pre></td></tr></table></figure></p><p>而不是<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>] <span class="string">"v10"</span> <span class="string">"v2"</span>  <span class="string">"v7"</span></span><br></pre></td></tr></table></figure></p><a id="more"></a><p>有两种实现方法</p><h2 id="Use-gtools-package"><a href="#Use-gtools-package" class="headerlink" title="Use gtools package"></a>Use gtools package</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(<span class="string">"gtools"</span>)</span><br><span class="line">&gt; mixedsort(c(<span class="string">"v10"</span>, <span class="string">"v7"</span>, <span class="string">"v2"</span>))</span><br><span class="line">[<span class="number">1</span>] <span class="string">"v2"</span> <span class="string">"v7"</span>  <span class="string">"v10"</span></span><br></pre></td></tr></table></figure><h2 id="Use-tidyverse"><a href="#Use-tidyverse" class="headerlink" title="Use tidyverse"></a>Use tidyverse</h2><p>如果是要排序dataframe中的列，可以直接</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(<span class="string">"tidyverse"</span>)</span><br><span class="line">&gt; select(dataframe, num_range(<span class="string">"v"</span>, <span class="number">2</span>:<span class="number">10</span>))</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a href="https://stackoverflow.com/questions/17531403" target="_blank" rel="noopener">https://stackoverflow.com/questions/17531403</a><br>[2] <a href="https://dplyr.tidyverse.org/reference/select.html" target="_blank" rel="noopener">https://dplyr.tidyverse.org/reference/select.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在R中，有时希望按照数字大小而不是默认的字符顺序来排序含有数字的字符向量(character vector)。&lt;/p&gt;
+&lt;p&gt;例如把&lt;br&gt;&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;c(&lt;span class=&quot;string&quot;&gt;&quot;v10&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;v7&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;v2&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;排序成&lt;br&gt;&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;string&quot;&gt;&quot;v2&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;v7&quot;&lt;/span&gt;  &lt;span class=&quot;string&quot;&gt;&quot;v10&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;而不是&lt;br&gt;&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;string&quot;&gt;&quot;v10&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;v2&quot;&lt;/span&gt;  &lt;span class=&quot;string&quot;&gt;&quot;v7&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="R" scheme="https://qifei9.github.io/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World!</title>
+    <link href="https://qifei9.github.io/2018/hello-world.html"/>
+    <id>https://qifei9.github.io/2018/hello-world.html</id>
+    <published>2018-07-01T15:03:11.000Z</published>
+    <updated>2018-07-01T19:27:11.441Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hello World!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Hello World!&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="other" scheme="https://qifei9.github.io/tags/other/"/>
+    
+  </entry>
+  
+</feed>
