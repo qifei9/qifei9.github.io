@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Qifei9</title>
   
-  <subtitle>Quick Note</subtitle>
+  <subtitle>Stay Curious, Keep Exploring</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qifei9.github.io/"/>
-  <updated>2018-07-08T18:21:54.114Z</updated>
+  <updated>2018-07-11T18:57:35.321Z</updated>
   <id>https://qifei9.github.io/</id>
   
   <author>
@@ -17,17 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>WSL中的文件权限设置</title>
+    <link href="https://qifei9.github.io/2018/wsl-file-permission.html"/>
+    <id>https://qifei9.github.io/2018/wsl-file-permission.html</id>
+    <published>2018-07-11T17:30:01.000Z</published>
+    <updated>2018-07-11T18:57:35.321Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>WSL中默认的文件权限是777，把它修改为和Linux默认的一致（目录755，文件644）。</p></div><a id="more"></a><h1 id="WSL目录下的文件"><a href="#WSL目录下的文件" class="headerlink" title="WSL目录下的文件"></a>WSL目录下的文件</h1><p>在<code>.profile</code>或<code>.zshenv</code>或中加入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ <span class="string">"<span class="variable">$(umask)</span>"</span> == <span class="string">'000'</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">umask</span> 022</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><h1 id="Windows目录下的文件"><a href="#Windows目录下的文件" class="headerlink" title="Windows目录下的文件"></a>Windows目录下的文件</h1><p>在<code>/etc/wsl.conf</code>中加入（如果文件不存在，就新建一个）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[automount]</span><br><span class="line">enabled = <span class="literal">true</span></span><br><span class="line">root = /mnt/</span><br><span class="line">options = <span class="string">"metadata,dmask=022,fmask=133"</span></span><br><span class="line">mountFsTab = <span class="literal">false</span></span><br></pre></td></tr></table></figure><div class="note warning"><p>如果在<code>options</code>中直接设置<code>umask=022</code>或者设置中包含<code>fmask=133</code>, <a href="https://github.com/goreliu/wsl-terminal" target="_blank" rel="noopener">wsl-terminal</a>和<a href="https://github.com/mintty/wsltty" target="_blank" rel="noopener">WSLtty</a>将无法运行，而从Windows Store安装的WSL程序可以运行。猜测是因为wsl-terminal和WSLtty的可执行程序以644的权限挂载，导致没有运行权限而无法运行。可能的解决方法（未验证），设置<code>mountFsTab = true</code>，然后在<code>etc/fstab</code>中单独设置每个盘的挂载选项，把wsl-terminal或WSLtty所在的盘以744的权限（fmask = 033）挂载。</p></div><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1"><sup>1</sup>. <a href="http://zuyunfei.com/2018/06/15/file-system-configuration-in-wsl/" target="_blank" rel="noopener">http://zuyunfei.com/2018/06/15/file-system-configuration-in-wsl/</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote><blockquote id="fn_2"><sup>2</sup>. <a href="https://blogs.msdn.microsoft.com/commandline/2018/02/07/automatically-configuring-wsl/" target="_blank" rel="noopener">https://blogs.msdn.microsoft.com/commandline/2018/02/07/automatically-configuring-wsl/</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;WSL中默认的文件权限是777，把它修改为和Linux默认的一致（目录755，文件644）。&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="wsl" scheme="https://qifei9.github.io/tags/wsl/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R输出数据到文件时关闭科学记数法表示</title>
     <link href="https://qifei9.github.io/2018/r-turn-off-scientific-notation-when-writing.html"/>
     <id>https://qifei9.github.io/2018/r-turn-off-scientific-notation-when-writing.html</id>
     <published>2018-07-08T16:36:49.000Z</published>
-    <updated>2018-07-08T18:21:54.114Z</updated>
+    <updated>2018-07-11T18:38:53.415Z</updated>
     
-    <content type="html"><![CDATA[<div class="note success"><p>使用tidyverse里的<code>readr::write_tsv</code>输出数据到文件时，有些<code>numeric</code>型的数据会使用科学记数法表示，可以在输出前使用<code>format</code>函数来使其按原样输出。</p></div><a id="more"></a><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; n &lt;- n %&gt;%</span><br><span class="line">    mutate_if(is.numeric, funs(format(., scientific = <span class="literal">F</span>))) %&gt;%</span><br><span class="line">    write_tsv(<span class="string">"foo/bar"</span>)</span><br></pre></td></tr></table></figure><p>如果要移除数字末尾多余的0，可以给<code>format</code>加上<code>drop0trailing  =  T</code>参数。</p><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1] <a href="https://stackoverflow.com/questions/43227387/" target="_blank" rel="noopener">https://stackoverflow.com/questions/43227387/</a></p>]]></content>
+    <content type="html"><![CDATA[<div class="note success"><p>使用<code>readr::write_tsv</code>输出数据到文件时，有些<code>numeric</code>型的数据会使用科学记数法表示，可以在输出前使用<code>format</code>函数来使其按原样输出。</p></div><a id="more"></a><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; n &lt;- n %&gt;%</span><br><span class="line">    mutate_if(is.numeric, funs(format(., scientific = <span class="literal">F</span>))) %&gt;%</span><br><span class="line">    write_tsv(<span class="string">"foo/bar"</span>)</span><br></pre></td></tr></table></figure><p>如果要移除数字末尾多余的0，可以给<code>format</code>加上<code>drop0trailing  =  T</code>参数。</p><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1"><sup>1</sup>. <a href="https://stackoverflow.com/questions/43227387/" target="_blank" rel="noopener">https://stackoverflow.com/questions/43227387/</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote>]]></content>
     
     <summary type="html">
     
-      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;使用tidyverse里的&lt;code&gt;readr::write_tsv&lt;/code&gt;输出数据到文件时，有些&lt;code&gt;numeric&lt;/code&gt;型的数据会使用科学记数法表示，可以在输出前使用&lt;code&gt;format&lt;/code&gt;函数来使其按原样输出。&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;使用&lt;code&gt;readr::write_tsv&lt;/code&gt;输出数据到文件时，有些&lt;code&gt;numeric&lt;/code&gt;型的数据会使用科学记数法表示，可以在输出前使用&lt;code&gt;format&lt;/code&gt;函数来使其按原样输出。&lt;/p&gt;&lt;/div&gt;
     
     </summary>
     
@@ -66,9 +86,9 @@
     <link href="https://qifei9.github.io/2018/gtf2bed.html"/>
     <id>https://qifei9.github.io/2018/gtf2bed.html</id>
     <published>2018-07-08T11:20:50.000Z</published>
-    <updated>2018-07-08T18:22:45.571Z</updated>
+    <updated>2018-07-11T18:40:08.055Z</updated>
     
-    <content type="html"><![CDATA[<div class="note success"><p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p></div><a id="more"></a><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装<code>BEDOPS</code>可以使用bioconda做的docker镜像：<a href="https://quay.io/repository/biocontainers/bedops" target="_blank" rel="noopener">https://quay.io/repository/biocontainers/bedops</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1</span><br></pre></td></tr></table></figure><p>注意把上面命令中的<code>tag</code>（<code>2.4.35--h2d50403_1</code>）替换成最新的版本。</p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动docker容器后，使用<code>gtf2bed</code>命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtf2bed &lt; foo.gtf</span><br></pre></td></tr></table></figure><p>转换后的bed文件将被直接输出在标准输出上。</p><p>如果需要将bed转换回gtf，可以使用<code>awk</code>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;' foo_subset.bed &gt; foo_subset.gtf</span><br></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>[1] <a href="https://github.com/bedops/bedops" target="_blank" rel="noopener">https://github.com/bedops/bedops</a><br>[2] <a href="https://bioconda.github.io/recipes/bedops/README.html" target="_blank" rel="noopener">https://bioconda.github.io/recipes/bedops/README.html</a><br>[3] <a href="https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html" target="_blank" rel="noopener">https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html</a></p>]]></content>
+    <content type="html"><![CDATA[<div class="note success"><p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p></div><a id="more"></a><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装<code>BEDOPS</code>可以使用bioconda做的docker镜像：<a href="https://quay.io/repository/biocontainers/bedops" target="_blank" rel="noopener">https://quay.io/repository/biocontainers/bedops</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1</span><br></pre></td></tr></table></figure><p>注意把上面命令中的<code>tag</code>（<code>2.4.35--h2d50403_1</code>）替换成最新的版本。</p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动docker容器后，使用<code>gtf2bed</code>命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtf2bed &lt; foo.gtf</span><br></pre></td></tr></table></figure><p>转换后的bed文件将被直接输出在标准输出上。</p><p>如果需要将bed转换回gtf，可以使用<code>awk</code>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;'</span> foo_subset.bed &gt; foo_subset.gtf</span><br></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote id="fn_1"><sup>1</sup>. <a href="https://github.com/bedops/bedops" target="_blank" rel="noopener">https://github.com/bedops/bedops</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote><blockquote id="fn_2"><sup>2</sup>. <a href="https://bioconda.github.io/recipes/bedops/README.html" target="_blank" rel="noopener">https://bioconda.github.io/recipes/bedops/README.html</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a></blockquote><blockquote id="fn_3"><sup>3</sup>. <a href="https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html" target="_blank" rel="noopener">https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html</a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a></blockquote>]]></content>
     
     <summary type="html">
     

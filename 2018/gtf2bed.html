@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="en-US">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -119,8 +119,8 @@
 <meta property="og:url" content="https://qifei9.github.io/2018/gtf2bed.html">
 <meta property="og:site_name" content="Qifei9">
 <meta property="og:description" content="使用BEDOPS将gtf格式转换为bed格式。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-08T18:22:45.571Z">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-07-11T18:40:08.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="将gtf格式转换为bed格式">
 <meta name="twitter:description" content="使用BEDOPS将gtf格式转换为bed格式。">
@@ -182,7 +182,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en-US">
 
   
   
@@ -206,13 +206,13 @@
     </div>
     
       
-        <h1 class="site-subtitle" itemprop="description">Quick Note</h1>
+        <h1 class="site-subtitle" itemprop="description">Stay Curious, Keep Exploring</h1>
       
     
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -240,7 +240,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
         
         
@@ -256,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -353,14 +353,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="创建时间：2018-07-08 19:20:50" itemprop="dateCreated datePublished" datetime="2018-07-08T19:20:50+08:00">2018-07-08</time>
+              <time title="Created: 2018-07-08 19:20:50" itemprop="dateCreated datePublished" datetime="2018-07-08T19:20:50+08:00">2018-07-08</time>
             
 
             
@@ -375,9 +375,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">更新于</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="修改时间：2018-07-09 02:22:45" itemprop="dateModified" datetime="2018-07-09T02:22:45+08:00">2018-07-09</time>
+                <time title="Modified: 2018-07-12 02:40:08" itemprop="dateModified" datetime="2018-07-12T02:40:08+08:00">2018-07-12</time>
               
             
           </span>
@@ -396,7 +396,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             阅读次数： 
+             Views:  
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -421,14 +421,22 @@
         <div class="note success"><p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p></div>
 <a id="more"></a>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装<code>BEDOPS</code>可以使用bioconda做的docker镜像：<a href="https://quay.io/repository/biocontainers/bedops" target="_blank" rel="noopener">https://quay.io/repository/biocontainers/bedops</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1</span><br></pre></td></tr></table></figure>
 <p>注意把上面命令中的<code>tag</code>（<code>2.4.35--h2d50403_1</code>）替换成最新的版本。</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动docker容器后，使用<code>gtf2bed</code>命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtf2bed &lt; foo.gtf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtf2bed &lt; foo.gtf</span><br></pre></td></tr></table></figure>
 <p>转换后的bed文件将被直接输出在标准输出上。</p>
 <p>如果需要将bed转换回gtf，可以使用<code>awk</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;' foo_subset.bed &gt; foo_subset.gtf</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>[1] <a href="https://github.com/bedops/bedops" target="_blank" rel="noopener">https://github.com/bedops/bedops</a><br>[2] <a href="https://bioconda.github.io/recipes/bedops/README.html" target="_blank" rel="noopener">https://bioconda.github.io/recipes/bedops/README.html</a><br>[3] <a href="https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html" target="_blank" rel="noopener">https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;'</span> foo_subset.bed &gt; foo_subset.gtf</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote id="fn_1">
+<sup>1</sup>. <a href="https://github.com/bedops/bedops" target="_blank" rel="noopener">https://github.com/bedops/bedops</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. <a href="https://bioconda.github.io/recipes/bedops/README.html" target="_blank" rel="noopener">https://bioconda.github.io/recipes/bedops/README.html</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. <a href="https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html" target="_blank" rel="noopener">https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html</a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
 
       
     </div>
@@ -450,21 +458,21 @@
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div></div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
+    <span>Donate</span>
   </button>
   <div id="QR" style="display: none;">
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="qifei9 微信支付"/>
-        <p>微信支付</p>
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="qifei9 WeChat Pay"/>
+        <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.png" alt="qifei9 支付宝"/>
-        <p>支付宝</p>
+        <img id="alipay_qr" src="/images/alipay.png" alt="qifei9 Alipay"/>
+        <p>Alipay</p>
       </div>
     
 
@@ -480,13 +488,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>qifei9</li>
+    <strong>Post author:  </strong>qifei9</li>
   <li class="post-copyright-link">
-    <strong>本文链接：</strong>
+    <strong>Post link: </strong>
     <a href="https://qifei9.github.io/2018/gtf2bed.html" title="将gtf格式转换为bed格式">https://qifei9.github.io/2018/gtf2bed.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
 </ul>
 
       </div>
@@ -579,10 +587,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -606,8 +614,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">日志</span>
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -629,8 +637,10 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">标签</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -735,7 +745,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -743,7 +753,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a></div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a></div>
 
 
 
@@ -753,14 +763,14 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
+    <span class="site-uv" title="Total Visitors">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="总访问量">
+    <span class="site-pv" title="Total Views">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
@@ -977,7 +987,7 @@
     $('.highlight').each(function (i, e) {
       var $wrap = $('<div>').addClass('highlight-wrap')
       $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
         var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
           return $(e).text()
         }).toArray().join('\n')
@@ -992,14 +1002,14 @@
         var result = document.execCommand('copy')
         document.body.removeChild(ta)
         
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
         
         $(this).blur()
       })).on('mouseleave', function (e) {
         var $b = $(this).find('.copy-btn')
         setTimeout(function () {
-          $b.text('复制')
+          $b.text('Copy')
         }, 300)
       }).append(e)
     })
