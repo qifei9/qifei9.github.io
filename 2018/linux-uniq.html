@@ -112,18 +112,18 @@
 
 
 
-  <meta name="description" content="使用BEDOPS将gtf格式转换为bed格式。">
-<meta name="keywords" content="bioinfomatics">
+  <meta name="description" content="1sort foobar.txt | uniq -D">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="将gtf格式转换为bed格式">
-<meta property="og:url" content="https://qifei9.github.io/2018/gtf2bed.html">
+<meta property="og:title" content="Linux下查找文件中重复的行">
+<meta property="og:url" content="https://qifei9.github.io/2018/linux-uniq.html">
 <meta property="og:site_name" content="Qifei9">
-<meta property="og:description" content="使用BEDOPS将gtf格式转换为bed格式。">
+<meta property="og:description" content="1sort foobar.txt | uniq -D">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-07-11T18:40:08.055Z">
+<meta property="og:updated_time" content="2018-07-12T09:39:52.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="将gtf格式转换为bed格式">
-<meta name="twitter:description" content="使用BEDOPS将gtf格式转换为bed格式。">
+<meta name="twitter:title" content="Linux下查找文件中重复的行">
+<meta name="twitter:description" content="1sort foobar.txt | uniq -D">
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="https://qifei9.github.io/2018/gtf2bed.html"/>
+  <link rel="canonical" href="https://qifei9.github.io/2018/linux-uniq.html"/>
 
 
 
@@ -142,7 +142,7 @@
   };
 </script>
 
-  <title>将gtf格式转换为bed格式 | Qifei9</title>
+  <title>Linux下查找文件中重复的行 | Qifei9</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/gtf2bed.html">
+    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/linux-uniq.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qifei9">
@@ -335,7 +335,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">将gtf格式转换为bed格式
+          <h2 class="post-title" itemprop="name headline">Linux下查找文件中重复的行
               
             
           </h2>
@@ -360,24 +360,12 @@
                 
               
 
-              <time title="Created: 2018-07-08 19:20:50" itemprop="dateCreated datePublished" datetime="2018-07-08T19:20:50+08:00">2018-07-08</time>
+              <time title="Created: 2018-07-12 16:51:42 / Modified: 17:39:52" itemprop="dateCreated datePublished" datetime="2018-07-12T16:51:42+08:00">2018-07-12</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-12 02:40:08" itemprop="dateModified" datetime="2018-07-12T02:40:08+08:00">2018-07-12</time>
               
             
           </span>
@@ -418,24 +406,21 @@
       
 
       
-        <div class="note success"><p>使用<code>BEDOPS</code>将gtf格式转换为bed格式。</p></div>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort foobar.txt | uniq -D</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装<code>BEDOPS</code>可以使用bioconda做的docker镜像：<a href="https://quay.io/repository/biocontainers/bedops" target="_blank" rel="noopener">https://quay.io/repository/biocontainers/bedops</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1</span><br></pre></td></tr></table></figure>
-<p>注意把上面命令中的<code>tag</code>（<code>2.4.35--h2d50403_1</code>）替换成最新的版本。</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动docker容器后，使用<code>gtf2bed</code>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtf2bed &lt; foo.gtf</span><br></pre></td></tr></table></figure>
-<p>转换后的bed文件将被直接输出在标准输出上。</p>
-<p>如果需要将bed转换回gtf，可以使用<code>awk</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;'</span> foo_subset.bed &gt; foo_subset.gtf</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote id="fn_1">
-<sup>1</sup>. <a href="https://github.com/bedops/bedops" target="_blank" rel="noopener">https://github.com/bedops/bedops</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+<div class="note info"><ul>
+<li>无参数时，输出所有行，重复行只在首次出现时输出一次</li>
+<li><code>-u</code>：只输出非重复行</li>
+<li><code>-D</code>：只输出重复行，重复几次输出几次</li>
+<li><code>-d</code>：只输出重复行，每类重复只输出一次</li>
+<li><code>-c</code>：输出时在每行前加上该行出现的次数，可以单独使用，也可以和<code>-d</code>一起使用</li>
+</ul></div>
+<div class="note warning"><p><code>uniq</code>只能在找到连续出现的重复行，所以要先用<code>sort</code></p></div>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1">
+<sup>1</sup>. <a href="http://blog.sina.com.cn/s/blog_6797a6700101pdm7.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_6797a6700101pdm7.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
 <blockquote id="fn_2">
-<sup>2</sup>. <a href="https://bioconda.github.io/recipes/bedops/README.html" target="_blank" rel="noopener">https://bioconda.github.io/recipes/bedops/README.html</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_3">
-<sup>3</sup>. <a href="https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html" target="_blank" rel="noopener">https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html</a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+<sup>2</sup>. <a href="http://os.51cto.com/art/200912/171332.htm" target="_blank" rel="noopener">http://os.51cto.com/art/200912/171332.htm</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
 </blockquote>
 
       
@@ -491,7 +476,7 @@
     <strong>Post author:  </strong>qifei9</li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://qifei9.github.io/2018/gtf2bed.html" title="将gtf格式转换为bed格式">https://qifei9.github.io/2018/gtf2bed.html</a>
+    <a href="https://qifei9.github.io/2018/linux-uniq.html" title="Linux下查找文件中重复的行">https://qifei9.github.io/2018/linux-uniq.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -504,7 +489,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/bioinfomatics/" rel="tag"># bioinfomatics</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -517,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/file-permission-number.html" rel="next" title="以数字形式获取linux文件权限">
-                <i class="fa fa-chevron-left"></i> 以数字形式获取linux文件权限
+              <a href="/2018/wsl-file-permission.html" rel="next" title="WSL中的文件权限设置">
+                <i class="fa fa-chevron-left"></i> WSL中的文件权限设置
               </a>
             
           </div>
@@ -527,8 +512,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/r-hash.html" rel="prev" title="在R中对字符串取hash">
-                在R中对字符串取hash <i class="fa fa-chevron-right"></i>
+              <a href="/2018/python-csv.html" rel="prev" title="Python读取输出csv/tsv">
+                Python读取输出csv/tsv <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -706,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">1.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>

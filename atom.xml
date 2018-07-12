@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qifei9.github.io/"/>
-  <updated>2018-07-11T18:57:35.321Z</updated>
+  <updated>2018-07-12T10:28:39.218Z</updated>
   <id>https://qifei9.github.io/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python分割字符串</title>
+    <link href="https://qifei9.github.io/2018/python-split.html"/>
+    <id>https://qifei9.github.io/2018/python-split.html</id>
+    <published>2018-07-12T10:17:08.000Z</published>
+    <updated>2018-07-12T10:28:39.218Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>Python分割字符串，可以使用内置的<code>str.split()</code>或者<code>re</code>模块的<code>re.split()</code>。</p></div><a id="more"></a><h1 id="str-split"><a href="#str-split" class="headerlink" title="str.split()"></a>str.split()</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.split(sep=<span class="keyword">None</span>, maxsplit=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure><ul><li><code>sep</code>，分隔符</li><li><code>maxsplit</code>，最大分割次数，也就是说分割产生的list最多有<code>maxsplit+1</code>个元素，默认无限制</li></ul><h1 id="re-split"><a href="#re-split" class="headerlink" title="re.split()"></a>re.split()</h1><p>TODO</p><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1"><sup>1</sup>. <a href="https://docs.python.org/3/library/stdtypes.html#str.split" target="_blank" rel="noopener">https://docs.python.org/3/library/stdtypes.html#str.split</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;Python分割字符串，可以使用内置的&lt;code&gt;str.split()&lt;/code&gt;或者&lt;code&gt;re&lt;/code&gt;模块的&lt;code&gt;re.split()&lt;/code&gt;。&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://qifei9.github.io/tags/python/"/>
+    
+      <category term="programing" scheme="https://qifei9.github.io/tags/programing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python读取输出csv/tsv</title>
+    <link href="https://qifei9.github.io/2018/python-csv.html"/>
+    <id>https://qifei9.github.io/2018/python-csv.html</id>
+    <published>2018-07-12T09:42:28.000Z</published>
+    <updated>2018-07-12T10:15:11.248Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>Python读取或输出csv/tsv, 使用<code>csv</code>模块</p></div><a id="more"></a><h1 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'in.csv'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.reader(f)</span><br><span class="line">    headers = next(f_csv)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure><p>读取tsv，<code>csv.reader(f, delimiter=&#39;\t&#39;)</code>。</p><p>将数据读取到Dict中，以使用列名来访问：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'in.csv'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.DictReader(f)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure><h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">out = csv.writer(sys.stdout)</span><br><span class="line">out.writerow(header)</span><br><span class="line">out.writerows(rows)</span><br></pre></td></tr></table></figure><p>对于Dict数据：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">out = csv.DictWriter(sys.stdout, fieldnames=header)</span><br><span class="line">out.writeheader()</span><br><span class="line">out.writerows(rows)</span><br></pre></td></tr></table></figure><p>对于上面的<code>fieldnames</code><sup><a href="#fn_1" id="reffn_1">1</a></sup>：</p><blockquote><p>The <em>fieldnames</em> parameter is a sequence of keys that identify the order in which values in the dictionary passed to the <code>writerow()</code> method are written to file.</p></blockquote><h1 id="其它方法"><a href="#其它方法" class="headerlink" title="其它方法"></a>其它方法</h1><p>来自<sup><a href="#fn_2" id="reffn_2">2</a></sup>：</p><blockquote><p>最后，如果你读取CSV数据的目的是做数据分析和统计的话， 你可能需要看一看<code>Pandas</code>包。<br><code>Pandas</code>包含了一个非常方便的函数叫<code>pandas.read_csv()</code>，它可以加载CSV数据到一个<code>DataFrame</code>对象中去。</p></blockquote><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1"><sup>1</sup>. <a href="https://docs.python.org/3/library/csv.html" target="_blank" rel="noopener">https://docs.python.org/3/library/csv.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote><blockquote id="fn_2"><sup>2</sup>. <a href="https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/c06/p01_read_write_csv_data.html" target="_blank" rel="noopener">https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/c06/p01_read_write_csv_data.html</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;Python读取或输出csv/tsv, 使用&lt;code&gt;csv&lt;/code&gt;模块&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://qifei9.github.io/tags/python/"/>
+    
+      <category term="programing" scheme="https://qifei9.github.io/tags/programing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下查找文件中重复的行</title>
+    <link href="https://qifei9.github.io/2018/linux-uniq.html"/>
+    <id>https://qifei9.github.io/2018/linux-uniq.html</id>
+    <published>2018-07-12T08:51:42.000Z</published>
+    <updated>2018-07-12T09:39:52.274Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort foobar.txt | uniq -D</span><br></pre></td></tr></table></figure><a id="more"></a><div class="note info"><ul><li>无参数时，输出所有行，重复行只在首次出现时输出一次</li><li><code>-u</code>：只输出非重复行</li><li><code>-D</code>：只输出重复行，重复几次输出几次</li><li><code>-d</code>：只输出重复行，每类重复只输出一次</li><li><code>-c</code>：输出时在每行前加上该行出现的次数，可以单独使用，也可以和<code>-d</code>一起使用</li></ul></div><div class="note warning"><p><code>uniq</code>只能在找到连续出现的重复行，所以要先用<code>sort</code></p></div><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1"><sup>1</sup>. <a href="http://blog.sina.com.cn/s/blog_6797a6700101pdm7.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_6797a6700101pdm7.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote><blockquote id="fn_2"><sup>2</sup>. <a href="http://os.51cto.com/art/200912/171332.htm" target="_blank" rel="noopener">http://os.51cto.com/art/200912/171332.htm</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sort foobar.txt | uniq -D&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://qifei9.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>WSL中的文件权限设置</title>
