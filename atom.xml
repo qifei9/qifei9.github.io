@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qifei9.github.io/"/>
-  <updated>2018-07-18T18:24:11.923Z</updated>
+  <updated>2018-07-19T07:09:43.107Z</updated>
   <id>https://qifei9.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sort and rename facet labels in ggplot2</title>
+    <link href="https://qifei9.github.io/2018/ggplot2-sort-rename-facet.html"/>
+    <id>https://qifei9.github.io/2018/ggplot2-sort-rename-facet.html</id>
+    <published>2018-07-19T06:52:16.000Z</published>
+    <updated>2018-07-19T07:09:43.107Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>使用ggplot2作图时，对facet的label进行排序和重命名。</p></div><a id="more"></a><h2 id="Sort"><a href="#Sort" class="headerlink" title="Sort"></a>Sort</h2><p>把含有labels的列转换为factor，并设定它的level，ggplot2就会自动按照level来排序。</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n &lt;- n %&gt;%</span><br><span class="line">    mutate(strength = factor(strength, levels = c(<span class="string">"S"</span>, <span class="string">"M"</span>, <span class="string">"W"</span>)))</span><br></pre></td></tr></table></figure><h2 id="Rename"><a href="#Rename" class="headerlink" title="Rename"></a>Rename</h2><p>创建一个named vector，把原来的label对应到name上，然后再作图的时候使用<code>labeller</code>函数。</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ss_labels &lt;- c(S = <span class="string">"Strong"</span>, M = <span class="string">"Medium"</span>, W = <span class="string">"Weak"</span>)</span><br><span class="line"></span><br><span class="line">p &lt;- (</span><br><span class="line">    ggplot(n, aes(<span class="keyword">...</span>))</span><br><span class="line">    + geom_col(position = position_dodge())</span><br><span class="line">    + facet_wrap(~strength, labeller = labeller(strength = ss_labels))</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1"><sup>1</sup>. <a href="https://stackoverflow.com/questions/14262497/fixing-the-order-of-facets-in-ggplot" target="_blank" rel="noopener">https://stackoverflow.com/questions/14262497/fixing-the-order-of-facets-in-ggplot</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote><blockquote id="fn_2"><sup>2</sup>. <a href="http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/" target="_blank" rel="noopener">http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;使用ggplot2作图时，对facet的label进行排序和重命名。&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="R" scheme="https://qifei9.github.io/tags/R/"/>
+    
+      <category term="plot" scheme="https://qifei9.github.io/tags/plot/"/>
+    
+  </entry>
   
   <entry>
     <title>理解Linux的load average</title>
