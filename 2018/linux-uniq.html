@@ -408,13 +408,7 @@
       
         <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort foobar.txt | uniq -D</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<div class="note info"><ul>
-<li>无参数时，输出所有行，重复行只在首次出现时输出一次</li>
-<li><code>-u</code>：只输出非重复行</li>
-<li><code>-D</code>：只输出重复行，重复几次输出几次</li>
-<li><code>-d</code>：只输出重复行，每类重复只输出一次</li>
-<li><code>-c</code>：输出时在每行前加上该行出现的次数，可以单独使用，也可以和<code>-d</code>一起使用</li>
-</ul></div>
+<div class="note info"><ul><li>无参数时，输出所有行，重复行只在首次出现时输出一次</li><li><code>-u</code>：只输出非重复行</li><li><code>-D</code>：只输出重复行，重复几次输出几次</li><li><code>-d</code>：只输出重复行，每类重复只输出一次</li><li><code>-c</code>：输出时在每行前加上该行出现的次数，可以单独使用，也可以和<code>-d</code>一起使用</li></ul></div>
 <div class="note warning"><p><code>uniq</code>只能在找到连续出现的重复行，所以要先用<code>sort</code></p></div>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1">
 <sup>1</sup>. <a href="http://blog.sina.com.cn/s/blog_6797a6700101pdm7.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_6797a6700101pdm7.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
@@ -903,6 +897,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
