@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[chmod设置当前路径下所有文件和目录的权限]]></title>
+    <url>%2F2018%2Fchmod-all-dir-and-file.html</url>
+    <content type="text"><![CDATA[目录权限设为755，文件权限设为644： 12find ./ -type d | xargs -i chmod 755 &#123;&#125; # dirfind ./ -type f | xargs -i chmod 644 &#123;&#125; # file References 1. https://blog.csdn.net/wind19/article/details/7359736 &#8617;]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Sort and rename facet labels in ggplot2]]></title>
+    <url>%2F2018%2Fggplot2-sort-rename-facet.html</url>
+    <content type="text"><![CDATA[使用ggplot2作图时，对facet的label进行排序和重命名。 Sort把含有labels的列转换为factor，并设定它的level，ggplot2就会自动按照level来排序。 12n &lt;- n %&gt;% mutate(strength = factor(strength, levels = c("S", "M", "W"))) Rename创建一个named vector，把原来的label对应到name上，然后再作图的时候使用labeller函数。 12345678ss_labels &lt;- c(S = "Strong", M = "Medium", W = "Weak")p &lt;- ( ggplot(n, aes(...)) + geom_col(position = position_dodge()) + facet_wrap(~strength, labeller = labeller(strength = ss_labels)) ...) References 1. https://stackoverflow.com/questions/14262497/fixing-the-order-of-facets-in-ggplot &#8617; 2. http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/ &#8617;]]></content>
+      <tags>
+        <tag>R</tag>
+        <tag>plot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[理解Linux的load average]]></title>
+    <url>%2F2018%2Flinux-load-average.html</url>
+    <content type="text"><![CDATA[在Linux下使用top, htop和uptime等工具时，会输出一个由3个数字组成的”load average”。 Load average的三个数字分别代表1分钟，5分钟和15分钟内的系统平均负载。 系统负载为1时，代表一个CPU线程被占满。一般来说，系统负载可接受的最大值为CPU数乘以每CPU内核数乘以每内核线程数。 References 1. https://en.wikipedia.org/wiki/Load_%28computing%29 &#8617;]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python分割字符串]]></title>
+    <url>%2F2018%2Fpython-split.html</url>
+    <content type="text"><![CDATA[Python分割字符串，可以使用内置的str.split()或者re模块的re.split()。 str.split()1str.split(sep=None, maxsplit=-1) sep，分隔符 maxsplit，最大分割次数，也就是说分割产生的list最多有maxsplit+1个元素，默认无限制 re.split()TODO References 1. https://docs.python.org/3/library/stdtypes.html#str.split &#8617;]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>programing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python读取输出csv/tsv]]></title>
+    <url>%2F2018%2Fpython-csv.html</url>
+    <content type="text"><![CDATA[Python读取或输出csv/tsv, 使用csv模块 读取123456import csvwith open('in.csv') as f: f_csv = csv.reader(f) headers = next(f_csv) for row in f_csv: ... 读取tsv，csv.reader(f, delimiter=&#39;\t&#39;)。 将数据读取到Dict中，以使用列名来访问： 12345import csvwith open('in.csv') as f: f_csv = csv.DictReader(f) for row in f_csv: ... 输出123out = csv.writer(sys.stdout)out.writerow(header)out.writerows(rows) 对于Dict数据： 123out = csv.DictWriter(sys.stdout, fieldnames=header)out.writeheader()out.writerows(rows) 对于上面的fieldnames1： The fieldnames parameter is a sequence of keys that identify the order in which values in the dictionary passed to the writerow() method are written to file. 其它方法来自2： 最后，如果你读取CSV数据的目的是做数据分析和统计的话， 你可能需要看一看Pandas包。Pandas包含了一个非常方便的函数叫pandas.read_csv()，它可以加载CSV数据到一个DataFrame对象中去。 References 1. https://docs.python.org/3/library/csv.html &#8617; 2. https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/c06/p01_read_write_csv_data.html &#8617;]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>programing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下查找文件中重复的行]]></title>
+    <url>%2F2018%2Flinux-uniq.html</url>
+    <content type="text"><![CDATA[1sort foobar.txt | uniq -D 无参数时，输出所有行，重复行只在首次出现时输出一次-u：只输出非重复行-D：只输出重复行，重复几次输出几次-d：只输出重复行，每类重复只输出一次-c：输出时在每行前加上该行出现的次数，可以单独使用，也可以和-d一起使用 uniq只能在找到连续出现的重复行，所以要先用sort References 1. http://blog.sina.com.cn/s/blog_6797a6700101pdm7.html &#8617; 2. http://os.51cto.com/art/200912/171332.htm &#8617;]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[WSL中的文件权限设置]]></title>
+    <url>%2F2018%2Fwsl-file-permission.html</url>
+    <content type="text"><![CDATA[WSL中默认的文件权限是777，把它修改为和Linux默认的一致（目录755，文件644）。 WSL目录下的文件在.profile或.zshenv或中加入： 123if [[ "$(umask)" == '000' ]]; then umask 022fi Windows目录下的文件在/etc/wsl.conf中加入（如果文件不存在，就新建一个）： 12345[automount]enabled = trueroot = /mnt/options = "metadata,dmask=022,fmask=133"mountFsTab = false 如果在options中直接设置umask=022或者设置中包含fmask=133, wsl-terminal和WSLtty将无法运行，而从Windows Store安装的WSL程序可以运行。猜测是因为wsl-terminal和WSLtty的可执行程序以644的权限挂载，导致没有运行权限而无法运行。可能的解决方法（未验证），设置mountFsTab = true，然后在etc/fstab中单独设置每个盘的挂载选项，把wsl-terminal或WSLtty所在的盘以744的权限（fmask = 033）挂载。 References 1. http://zuyunfei.com/2018/06/15/file-system-configuration-in-wsl/ &#8617; 2. https://blogs.msdn.microsoft.com/commandline/2018/02/07/automatically-configuring-wsl/ &#8617;]]></content>
+      <tags>
+        <tag>wsl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[R输出数据到文件时关闭科学记数法表示]]></title>
+    <url>%2F2018%2Fr-turn-off-scientific-notation-when-writing.html</url>
+    <content type="text"><![CDATA[使用readr::write_tsv输出数据到文件时，有些numeric型的数据会使用科学记数法表示，可以在输出前使用format函数来使其按原样输出。 Code123&gt; n &lt;- n %&gt;% mutate_if(is.numeric, funs(format(., scientific = F))) %&gt;% write_tsv("foo/bar") 如果要移除数字末尾多余的0，可以给format加上drop0trailing = T参数。 References 1. https://stackoverflow.com/questions/43227387/ &#8617;]]></content>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在R中对字符串取hash]]></title>
+    <url>%2F2018%2Fr-hash.html</url>
+    <content type="text"><![CDATA[有时要在R中对一些信息做hash再保存，比如保存一些敏感信息时。这时可以使用openssl库中的一些函数。 以sha256为例： 123&gt; library("openssl")&gt; sha256("foo")[1] "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae"]]></content>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[将gtf格式转换为bed格式]]></title>
+    <url>%2F2018%2Fgtf2bed.html</url>
+    <content type="text"><![CDATA[使用BEDOPS将gtf格式转换为bed格式。 安装安装BEDOPS可以使用bioconda做的docker镜像：https://quay.io/repository/biocontainers/bedops 1docker pull quay.io/biocontainers/bedops:2.4.35--h2d50403_1 注意把上面命令中的tag（2.4.35--h2d50403_1）替换成最新的版本。 使用启动docker容器后，使用gtf2bed命令： 1gtf2bed &lt; foo.gtf 转换后的bed文件将被直接输出在标准输出上。 如果需要将bed转换回gtf，可以使用awk： 1awk '&#123;print $1"\t"$7"\t"$8"\t"($2+1)"\t"$3"\t"$5"\t"$6"\t"$9"\t"(substr($0, index($0,$10)))&#125;' foo_subset.bed &gt; foo_subset.gtf 参考 1. https://github.com/bedops/bedops &#8617; 2. https://bioconda.github.io/recipes/bedops/README.html &#8617; 3. https://bedops.readthedocs.io/en/latest/content/reference/file-management/conversion/gtf2bed.html &#8617;]]></content>
+      <tags>
+        <tag>bioinfomatics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[以数字形式获取linux文件权限]]></title>
+    <url>%2F2018%2Ffile-permission-number.html</url>
+    <content type="text"><![CDATA[在linux下以数字形式获取文件权限。 可以使用stat命令，直接使用stat获得详细输出，stat -c %a只输出以数字表示的文件权限。 参考http://novell.me/Linux/201410/stat-get-file-permission-with-octal-numb.html]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在R中按数字大小排序字符]]></title>
+    <url>%2F2018%2Fr-sort.html</url>
+    <content type="text"><![CDATA[在R中，有时希望按照数字大小而不是默认的字符顺序来排序含有数字的字符向量(character vector)。 例如把1c("v10", "v7", "v2") 排序成1[1] "v2" "v7" "v10" 而不是1[1] "v10" "v2" "v7" 有两种实现方法 Use gtools package123&gt; library("gtools")&gt; mixedsort(c("v10", "v7", "v2"))[1] "v2" "v7" "v10" Use tidyverse如果是要排序dataframe中的列，可以直接 12&gt; library("tidyverse")&gt; select(dataframe, num_range("v", 2:10)) 参考[1] https://stackoverflow.com/questions/17531403[2] https://dplyr.tidyverse.org/reference/select.html]]></content>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World!]]></title>
+    <url>%2F2018%2Fhello-world.html</url>
+    <content type="text"><![CDATA[Hello World!]]></content>
+      <tags>
+        <tag>other</tag>
+      </tags>
+  </entry>
+</search>
