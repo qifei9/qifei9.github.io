@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/ggplot2-sort-rename-facet.html</loc>
+    <lastmod>2018-07-19T07:09:43.107Z</lastmod>
+    <data>
+        <display>
+        <title>Sort and rename facet labels in ggplot2</title>
+        <pubTime>2018-07-19T06:52:16.000Z</pubTime>
+        
+        <tag>R</tag>
+         
+        <tag>plot</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/linux-load-average.html</loc>
+    <lastmod>2018-07-18T18:24:11.923Z</lastmod>
+    <data>
+        <display>
+        <title>理解Linux的load average</title>
+        <pubTime>2018-07-18T17:22:45.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/python-split.html</loc>
+    <lastmod>2018-07-12T10:28:39.218Z</lastmod>
+    <data>
+        <display>
+        <title>Python分割字符串</title>
+        <pubTime>2018-07-12T10:17:08.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>programing</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/python-csv.html</loc>
+    <lastmod>2018-07-12T10:15:11.248Z</lastmod>
+    <data>
+        <display>
+        <title>Python读取输出csv/tsv</title>
+        <pubTime>2018-07-12T09:42:28.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>programing</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/linux-uniq.html</loc>
+    <lastmod>2018-07-12T09:39:52.274Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下查找文件中重复的行</title>
+        <pubTime>2018-07-12T08:51:42.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/wsl-file-permission.html</loc>
+    <lastmod>2018-07-11T18:57:35.321Z</lastmod>
+    <data>
+        <display>
+        <title>WSL中的文件权限设置</title>
+        <pubTime>2018-07-11T17:30:01.000Z</pubTime>
+        
+        <tag>wsl</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/gtf2bed.html</loc>
+    <lastmod>2018-07-11T18:40:08.055Z</lastmod>
+    <data>
+        <display>
+        <title>将gtf格式转换为bed格式</title>
+        <pubTime>2018-07-08T11:20:50.000Z</pubTime>
+        
+        <tag>bioinfomatics</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/r-turn-off-scientific-notation-when-writing.html</loc>
+    <lastmod>2018-07-11T18:38:53.415Z</lastmod>
+    <data>
+        <display>
+        <title>R输出数据到文件时关闭科学记数法表示</title>
+        <pubTime>2018-07-08T16:36:49.000Z</pubTime>
+        
+        <tag>R</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/file-permission-number.html</loc>
+    <lastmod>2018-07-08T18:23:31.862Z</lastmod>
+    <data>
+        <display>
+        <title>以数字形式获取linux文件权限</title>
+        <pubTime>2018-07-07T17:00:29.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/r-hash.html</loc>
+    <lastmod>2018-07-08T16:18:59.952Z</lastmod>
+    <data>
+        <display>
+        <title>在R中对字符串取hash</title>
+        <pubTime>2018-07-08T15:51:57.000Z</pubTime>
+        
+        <tag>R</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/r-sort.html</loc>
+    <lastmod>2018-07-03T11:26:27.228Z</lastmod>
+    <data>
+        <display>
+        <title>在R中按数字大小排序字符</title>
+        <pubTime>2018-07-03T11:05:29.000Z</pubTime>
+        
+        <tag>R</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/hello-world.html</loc>
+    <lastmod>2018-07-01T19:27:11.441Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World!</title>
+        <pubTime>2018-07-01T15:03:11.000Z</pubTime>
+        
+        <tag>other</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+</urlset>

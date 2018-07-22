@@ -1,0 +1,12 @@
+https://qifei9.github.io/2018/ggplot2-sort-rename-facet.html
+https://qifei9.github.io/2018/linux-load-average.html
+https://qifei9.github.io/2018/python-split.html
+https://qifei9.github.io/2018/python-csv.html
+https://qifei9.github.io/2018/linux-uniq.html
+https://qifei9.github.io/2018/wsl-file-permission.html
+https://qifei9.github.io/2018/r-turn-off-scientific-notation-when-writing.html
+https://qifei9.github.io/2018/r-hash.html
+https://qifei9.github.io/2018/gtf2bed.html
+https://qifei9.github.io/2018/file-permission-number.html
+https://qifei9.github.io/2018/r-sort.html
+https://qifei9.github.io/2018/hello-world.html
