@@ -1,5 +1,5 @@
+https://qifei9.github.io/2018/tinytex-using-latexlive.html
 https://qifei9.github.io/2018/chmod-all-dir-and-file.html
 https://qifei9.github.io/2018/ggplot2-sort-rename-facet.html
 https://qifei9.github.io/2018/linux-load-average.html
 https://qifei9.github.io/2018/python-split.html
-https://qifei9.github.io/2018/python-csv.html

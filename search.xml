@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[To use Tex Live within tinytex]]></title>
+    <url>%2F2018%2Ftinytex-using-latexlive.html</url>
+    <content type="text"><![CDATA[Just uninstall TinyTex is enough to use other installed LaTeX distribution. To uninstall TinyTex: 123rm -rf ~/.TinyTexrm -rf ~/bin # or just remove the links in ~/bin# remove ~/bin from $PATH To use latexmk instead of tinytex’s emulation: 12&gt; options(tinytex.latexmk.emulation = FALSE)&gt; bookdown::render_book("./index.Rmd","bookdown::pdf_book") Reference 1. https://github.com/yihui/tinytex/issues/48 &#8617;]]></content>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[chmod设置当前路径下所有文件和目录的权限]]></title>
     <url>%2F2018%2Fchmod-all-dir-and-file.html</url>
     <content type="text"><![CDATA[目录权限设为755，文件权限设为644： 12find ./ -type d | xargs -i chmod 755 &#123;&#125; # dirfind ./ -type f | xargs -i chmod 644 &#123;&#125; # file References 1. https://blog.csdn.net/wind19/article/details/7359736 &#8617;]]></content>
