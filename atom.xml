@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qifei9.github.io/"/>
-  <updated>2018-07-23T11:09:39.528Z</updated>
+  <updated>2018-07-23T12:38:17.639Z</updated>
   <id>https://qifei9.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Enhancing ggplot2</title>
+    <link href="https://qifei9.github.io/2018/enhancing-ggplot2.html"/>
+    <id>https://qifei9.github.io/2018/enhancing-ggplot2.html</id>
+    <published>2018-07-23T11:43:45.000Z</published>
+    <updated>2018-07-23T12:38:17.639Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note success"><p>Enhancing ggplot2 with:</p><ul><li>ggpubr</li><li>ggthemr</li><li>ggthemes</li><li>ggsci</li><li>ggtech</li></ul></div><a id="more"></a><h2 id="ggpubr"><a href="#ggpubr" class="headerlink" title="ggpubr"></a>ggpubr</h2><p>ggpubr: “ggplot2” Based Publication Ready Plots</p><ul><li>repo: <a href="https://github.com/kassambara/ggpubr" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/kassambara/ggpubr</a></li><li>doc: <a href="http://www.sthda.com/english/rpkgs/ggpubr/index.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.sthda.com/english/rpkgs/ggpubr/index.html</a></li><li>other link: <a href="https://ytlogos.github.io/2017/09/13/ggpubr%E5%8C%85%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%BD%BB%E6%9D%BE%E4%BF%AE%E6%94%B9%E5%9B%BE%E5%BD%A2%E5%8F%82%E6%95%B0/" rel="external nofollow noopener noreferrer" target="_blank">^1</a></li></ul><h3 id="boxplot"><a href="#boxplot" class="headerlink" title="boxplot"></a>boxplot</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p &lt;- ggboxplot(vf_log_age, x = <span class="string">"sample_id"</span>, y = <span class="string">"expression"</span>,</span><br><span class="line">               color = <span class="string">"blue"</span>, fill = <span class="string">"gray"</span>, <span class="comment"># color and fill could be column names or colors</span></span><br><span class="line">               xlab = <span class="string">"sample id"</span>, ylab = <span class="string">"log10(FPKM)"</span>) +</span><br><span class="line">     font(<span class="string">"xlab"</span>, size = <span class="number">15</span>, margin = margin(t = <span class="number">10</span>)) +</span><br><span class="line">     font(<span class="string">"ylab"</span>, size = <span class="number">15</span>, margin = margin(r = <span class="number">10</span>)) +</span><br><span class="line">     font(<span class="string">"x.text"</span>, size = <span class="number">10</span>)</span><br></pre></td></tr></table></figure><h2 id="ggthemr"><a href="#ggthemr" class="headerlink" title="ggthemr"></a>ggthemr</h2><p>Themes for ggplot2</p><ul><li>repo: <a href="https://github.com/cttobin/ggthemr" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/cttobin/ggthemr</a></li></ul><h2 id="ggthemes"><a href="#ggthemes" class="headerlink" title="ggthemes"></a>ggthemes</h2><p>Additional themes, scales, and geoms for ggplot2</p><ul><li>repo: <a href="https://github.com/jrnold/ggthemes" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/jrnold/ggthemes</a></li><li>doc: <a href="https://jrnold.github.io/ggthemes" rel="external nofollow noopener noreferrer" target="_blank">https://jrnold.github.io/ggthemes</a></li></ul><h2 id="ggsci"><a href="#ggsci" class="headerlink" title="ggsci"></a>ggsci</h2><p>Scientific Journal and Sci-Fi Themed Color Palettes for ggplot2</p><ul><li>repo: <a href="https://github.com/road2stat/ggsci" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/road2stat/ggsci</a></li><li>doc: <a href="https://nanx.me/ggsci" rel="external nofollow noopener noreferrer" target="_blank">https://nanx.me/ggsci</a></li></ul><h2 id="ggtech"><a href="#ggtech" class="headerlink" title="ggtech"></a>ggtech</h2><p>ggplot2 tech themes, scales, and geoms</p><ul><li>repo: <a href="https://github.com/ricardo-bion/ggtech" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/ricardo-bion/ggtech</a></li></ul><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;Enhancing ggplot2 with:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;ggpubr&lt;/li&gt;&lt;li&gt;ggthemr&lt;/li&gt;&lt;li&gt;ggthemes&lt;/li&gt;&lt;li&gt;ggsci&lt;/li&gt;&lt;li&gt;ggtech&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>To use Tex Live within tinytex</title>

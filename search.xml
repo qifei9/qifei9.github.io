@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Enhancing ggplot2]]></title>
+    <url>%2F2018%2Fenhancing-ggplot2.html</url>
+    <content type="text"><![CDATA[Enhancing ggplot2 with:ggpubrggthemrggthemesggsciggtech ggpubrggpubr: “ggplot2” Based Publication Ready Plots repo: https://github.com/kassambara/ggpubr doc: http://www.sthda.com/english/rpkgs/ggpubr/index.html other link: ^1 boxplot123456p &lt;- ggboxplot(vf_log_age, x = "sample_id", y = "expression", color = "blue", fill = "gray", # color and fill could be column names or colors xlab = "sample id", ylab = "log10(FPKM)") + font("xlab", size = 15, margin = margin(t = 10)) + font("ylab", size = 15, margin = margin(r = 10)) + font("x.text", size = 10) ggthemrThemes for ggplot2 repo: https://github.com/cttobin/ggthemr ggthemesAdditional themes, scales, and geoms for ggplot2 repo: https://github.com/jrnold/ggthemes doc: https://jrnold.github.io/ggthemes ggsciScientific Journal and Sci-Fi Themed Color Palettes for ggplot2 repo: https://github.com/road2stat/ggsci doc: https://nanx.me/ggsci ggtechggplot2 tech themes, scales, and geoms repo: https://github.com/ricardo-bion/ggtech References]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[To use Tex Live within tinytex]]></title>
     <url>%2F2018%2Ftinytex-using-latexlive.html</url>
     <content type="text"><![CDATA[Just uninstall TinyTex is enough to use other installed LaTeX distribution. To uninstall TinyTex: 123rm -rf ~/.TinyTexrm -rf ~/bin # or just remove the links in ~/bin# remove ~/bin from $PATH To use latexmk instead of tinytex’s emulation: 12&gt; options(tinytex.latexmk.emulation = FALSE)&gt; bookdown::render_book("./index.Rmd","bookdown::pdf_book") Reference 1. https://github.com/yihui/tinytex/issues/48 &#8617;]]></content>
