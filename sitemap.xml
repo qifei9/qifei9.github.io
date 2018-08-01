@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://qifei9.github.io/2018/cups-pdf-out-dir.html</loc>
+    
+    <lastmod>2018-08-01T09:42:33.278Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://qifei9.github.io/2018/vim-notes.html</loc>
     
-    <lastmod>2018-07-26T06:52:57.682Z</lastmod>
+    <lastmod>2018-07-30T20:06:42.696Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://qifei9.github.io/2018/tinytex-using-texlive.html</loc>
+    
+    <lastmod>2018-07-28T11:17:51.742Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>https://qifei9.github.io/2018/enhancing-ggplot2.html</loc>
     
     <lastmod>2018-07-23T12:38:17.639Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://qifei9.github.io/2018/tinytex-using-latexlive.html</loc>
-    
-    <lastmod>2018-07-23T11:09:39.528Z</lastmod>
     
   </url>
   

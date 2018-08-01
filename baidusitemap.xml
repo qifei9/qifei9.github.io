@@ -4,14 +4,48 @@
 
     
   <url>
+    <loc>https://qifei9.github.io/2018/cups-pdf-out-dir.html</loc>
+    <lastmod>2018-08-01T09:42:33.278Z</lastmod>
+    <data>
+        <display>
+        <title>Output directory of CUPS-PDF-Printer</title>
+        <pubTime>2018-08-01T09:34:20.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://qifei9.github.io/2018/vim-notes.html</loc>
-    <lastmod>2018-07-26T06:52:57.682Z</lastmod>
+    <lastmod>2018-07-30T20:06:42.696Z</lastmod>
     <data>
         <display>
         <title>Notes for vim</title>
         <pubTime>2018-07-25T18:10:14.000Z</pubTime>
         
         <tag>vim</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://qifei9.github.io/2018/tinytex-using-texlive.html</loc>
+    <lastmod>2018-07-28T11:17:51.742Z</lastmod>
+    <data>
+        <display>
+        <title>To use Tex Live within tinytex</title>
+        <pubTime>2018-07-23T11:03:38.000Z</pubTime>
+        
+        <tag>R</tag>
          
          
            
@@ -79,23 +113,6 @@
         <title>Enhancing ggplot2</title>
         <pubTime>2018-07-23T11:43:45.000Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://qifei9.github.io/2018/tinytex-using-latexlive.html</loc>
-    <lastmod>2018-07-23T11:09:39.528Z</lastmod>
-    <data>
-        <display>
-        <title>To use Tex Live within tinytex</title>
-        <pubTime>2018-07-23T11:03:38.000Z</pubTime>
-        
-        <tag>R</tag>
-         
          
            
         </display>
