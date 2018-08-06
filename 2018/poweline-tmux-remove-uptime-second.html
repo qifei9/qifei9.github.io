@@ -116,18 +116,18 @@
 
 
 
-  <meta name="description" content="Python读取或输出csv/tsv, 使用csv模块">
-<meta name="keywords" content="python,programing">
+  <meta name="description" content="In ~/.config/powerline/themes/tmux, create default.json with the following content:">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python读取输出csv&#x2F;tsv">
-<meta property="og:url" content="https://qifei9.github.io/2018/python-csv.html">
+<meta property="og:title" content="Remove seconds in uptime of powerline tmux">
+<meta property="og:url" content="https://qifei9.github.io/2018/poweline-tmux-remove-uptime-second.html">
 <meta property="og:site_name" content="Qifei9">
-<meta property="og:description" content="Python读取或输出csv/tsv, 使用csv模块">
+<meta property="og:description" content="In ~/.config/powerline/themes/tmux, create default.json with the following content:">
 <meta property="og:locale" content="en-US">
-<meta property="og:updated_time" content="2018-07-12T10:15:11.248Z">
+<meta property="og:updated_time" content="2018-08-06T07:42:38.683Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python读取输出csv&#x2F;tsv">
-<meta name="twitter:description" content="Python读取或输出csv/tsv, 使用csv模块">
+<meta name="twitter:title" content="Remove seconds in uptime of powerline tmux">
+<meta name="twitter:description" content="In ~/.config/powerline/themes/tmux, create default.json with the following content:">
 
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="https://qifei9.github.io/2018/python-csv.html">
+  <link rel="canonical" href="https://qifei9.github.io/2018/poweline-tmux-remove-uptime-second.html">
 
 
 
@@ -146,7 +146,7 @@
   };
 </script>
 
-  <title>Python读取输出csv/tsv | Qifei9</title>
+  <title>Remove seconds in uptime of powerline tmux | Qifei9</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/python-csv.html">
+    <link itemprop="mainEntityOfPage" href="https://qifei9.github.io/2018/poweline-tmux-remove-uptime-second.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qifei9">
@@ -377,7 +377,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Python读取输出csv/tsv
+          <h2 class="post-title" itemprop="name headline">Remove seconds in uptime of powerline tmux
               
             
           </h2>
@@ -402,7 +402,7 @@
                 
               
 
-              <time title="Created: 2018-07-12 17:42:28 / Modified: 18:15:11" itemprop="dateCreated datePublished" datetime="2018-07-12T17:42:28+08:00">2018-07-12</time>
+              <time title="Created: 2018-08-06 15:34:46 / Modified: 15:42:38" itemprop="dateCreated datePublished" datetime="2018-08-06T15:34:46+08:00">2018-08-06</time>
             
 
             
@@ -447,28 +447,12 @@
       
 
       
-        <div class="note success"><p>Python读取或输出csv/tsv, 使用<code>csv</code>模块</p></div>
+        <p>In <code>~/.config/powerline/themes/tmux</code>, create <code>default.json</code> with the following content:</p>
 <a id="more"></a>
-<h1 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'in.csv'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.reader(f)</span><br><span class="line">    headers = next(f_csv)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
-<p>读取tsv，<code>csv.reader(f, delimiter=&#39;\t&#39;)</code>。</p>
-<p>将数据读取到Dict中，以使用列名来访问：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'in.csv'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.DictReader(f)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
-<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">out = csv.writer(sys.stdout)</span><br><span class="line">out.writerow(header)</span><br><span class="line">out.writerows(rows)</span><br></pre></td></tr></table></figure>
-<p>对于Dict数据：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">out = csv.DictWriter(sys.stdout, fieldnames=header)</span><br><span class="line">out.writeheader()</span><br><span class="line">out.writerows(rows)</span><br></pre></td></tr></table></figure>
-<p>对于上面的<code>fieldnames</code><sup><a href="#fn_1" id="reffn_1">1</a></sup>：</p>
-<blockquote>
-<p>The <em>fieldnames</em> parameter is a sequence of keys that identify the order in which values in the dictionary passed to the <code>writerow()</code> method are written to file.</p>
-</blockquote>
-<h1 id="其它方法"><a href="#其它方法" class="headerlink" title="其它方法"></a>其它方法</h1><p>来自<sup><a href="#fn_2" id="reffn_2">2</a></sup>：</p>
-<blockquote>
-<p>最后，如果你读取CSV数据的目的是做数据分析和统计的话， 你可能需要看一看<code>Pandas</code>包。<br><code>Pandas</code>包含了一个非常方便的函数叫<code>pandas.read_csv()</code>，它可以加载CSV数据到一个<code>DataFrame</code>对象中去。</p>
-</blockquote>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1">
-<sup>1</sup>. <a href="https://docs.python.org/3/library/csv.html" rel="external nofollow noopener noreferrer" target="_blank">https://docs.python.org/3/library/csv.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_2">
-<sup>2</sup>. <a href="https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/c06/p01_read_write_csv_data.html" rel="external nofollow noopener noreferrer" target="_blank">https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/c06/p01_read_write_csv_data.html</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"segments"</span>: &#123;</span><br><span class="line">		<span class="attr">"right"</span>: [</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">"function"</span>: <span class="string">"powerline.segments.common.sys.uptime"</span>,</span><br><span class="line">				<span class="attr">"priority"</span>: <span class="number">50</span>,</span><br><span class="line">				<span class="attr">"args"</span>: &#123;</span><br><span class="line">					<span class="attr">"shorten_len"</span>: <span class="number">2</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">"function"</span>: <span class="string">"powerline.segments.common.sys.system_load"</span>,</span><br><span class="line">				<span class="attr">"priority"</span>: <span class="number">50</span></span><br><span class="line">			&#125;,</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">"function"</span>: <span class="string">"powerline.segments.common.time.date"</span></span><br><span class="line">			&#125;,</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">"function"</span>: <span class="string">"powerline.segments.common.time.date"</span>,</span><br><span class="line">				<span class="attr">"name"</span>: <span class="string">"time"</span>,</span><br><span class="line">				<span class="attr">"args"</span>: &#123;</span><br><span class="line">					<span class="attr">"format"</span>: <span class="string">"%H:%M"</span>,</span><br><span class="line">					<span class="attr">"istime"</span>: <span class="literal">true</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">"function"</span>: <span class="string">"powerline.segments.common.net.hostname"</span></span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The <code>&quot;shorten_len&quot;: 2</code> did the job.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. <a href="https://powerline.readthedocs.io/en/master/configuration/segments/common.html#powerline.segments.common.sys.uptime" rel="external nofollow noopener noreferrer" target="_blank">https://powerline.readthedocs.io/en/master/configuration/segments/common.html#powerline.segments.common.sys.uptime</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
 
       
@@ -524,7 +508,7 @@
     <strong>Post author:  </strong>qifei9</li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://qifei9.github.io/2018/python-csv.html" title="Python读取输出csv/tsv">https://qifei9.github.io/2018/python-csv.html</a>
+    <a href="https://qifei9.github.io/2018/poweline-tmux-remove-uptime-second.html" title="Remove seconds in uptime of powerline tmux">https://qifei9.github.io/2018/poweline-tmux-remove-uptime-second.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -537,9 +521,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-            <a href="/tags/programing/" rel="tag"># programing</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -552,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/linux-uniq.html" rel="next" title="Linux下查找文件中重复的行">
-                <i class="fa fa-chevron-left"></i> Linux下查找文件中重复的行
+              <a href="/2018/cups-pdf-out-dir.html" rel="next" title="Output directory of CUPS-PDF-Printer">
+                <i class="fa fa-chevron-left"></i> Output directory of CUPS-PDF-Printer
               </a>
             
           </div>
@@ -561,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/python-split.html" rel="prev" title="Python分割字符串">
-                Python分割字符串 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -741,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#读取"><span class="nav-number">1.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输出"><span class="nav-number">2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它方法"><span class="nav-number">3.</span> <span class="nav-text">其它方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>

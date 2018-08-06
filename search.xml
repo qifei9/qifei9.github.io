@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Remove seconds in uptime of powerline tmux]]></title>
+    <url>%2F2018%2Fpoweline-tmux-remove-uptime-second.html</url>
+    <content type="text"><![CDATA[In ~/.config/powerline/themes/tmux, create default.json with the following content: 12345678910111213141516171819202122232425262728293031&#123; "segments": &#123; "right": [ &#123; "function": "powerline.segments.common.sys.uptime", "priority": 50, "args": &#123; "shorten_len": 2 &#125; &#125;, &#123; "function": "powerline.segments.common.sys.system_load", "priority": 50 &#125;, &#123; "function": "powerline.segments.common.time.date" &#125;, &#123; "function": "powerline.segments.common.time.date", "name": "time", "args": &#123; "format": "%H:%M", "istime": true &#125; &#125;, &#123; "function": "powerline.segments.common.net.hostname" &#125; ] &#125;&#125; The &quot;shorten_len&quot;: 2 did the job. References 1. https://powerline.readthedocs.io/en/master/configuration/segments/common.html#powerline.segments.common.sys.uptime &#8617;]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Output directory of CUPS-PDF-Printer]]></title>
     <url>%2F2018%2Fcups-pdf-out-dir.html</url>
     <content type="text"><![CDATA[The output directory of the CUPS-PDF-Printer is set in /etc/cups/cups-pdf.conf. The default directory is /var/spool/cups-pdf/${USER}. Set it like Out ${HOME}. Reference 1. http://linux-wiki.cn/wiki/zh-hans/PDF%E6%89%93%E5%8D%B0%E6%9C%BA &#8617;]]></content>
